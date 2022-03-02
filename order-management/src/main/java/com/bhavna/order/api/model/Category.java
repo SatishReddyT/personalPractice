@@ -11,17 +11,17 @@ public class Category {
 
 	
 	@Column(name = "CATEGORYID")
-	private String categoryId;
+	private int categoryId;
 
 	@Id
 	@Column(name = "CATEGORY")
 	private String category;
 
-	public String getCategoryId() {
+	public int getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(String categoryId) {
+	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
 

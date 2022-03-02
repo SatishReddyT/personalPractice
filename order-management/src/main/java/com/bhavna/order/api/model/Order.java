@@ -5,23 +5,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table(name = "ORDERS")
 public class Order {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ORDERID")
 	private int orderId;
 
-//	@Column(name = "CATEGORY")
-//	private String category;
+	@ManyToOne
+	@JoinColumn(name = "PRODID")
+	private Product prodId;
 
-	@Column(name = "PRODID")
-	private int prodId;
-
+	
 	@Column(name = "QUANTITY")
 	private int quantity;
 
@@ -39,19 +42,11 @@ public class Order {
 		this.orderId = orderId;
 	}
 
-//	public String getCategory() {
-//		return category;
-//	}
-//
-//	public void setCategory(String category) {
-//		this.category = category;
-//	}
-
-	public int getProdId() {
+	public Product getProdId() {
 		return prodId;
 	}
 
-	public void setProdId(int prodId) {
+	public void setProdId(Product prodId) {
 		this.prodId = prodId;
 	}
 
@@ -83,17 +78,13 @@ public class Order {
 		super();
 	}
 
-	public Order(int orderId, int prodId, int quantity, int orderPrice, String address) {
+	public Order(int orderId, Product prodId, int quantity, int orderPrice, String address) {
 		super();
 		this.orderId = orderId;
 		this.prodId = prodId;
 		this.quantity = quantity;
 		this.orderPrice = orderPrice;
 		this.address = address;
-	}
-
-	public Order updateWith(Order order) {
-		return new Order(this.orderId, order.prodId, order.quantity, order.orderPrice, order.address);
 	}
 
 }

@@ -15,15 +15,13 @@ import com.bhavna.order.api.model.Order;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
-	@Modifying
-	@Query(value = "DELETE orders from  orders o inner join product p on o.prodId = p.prodId inner join category c on c.category=p.category  WHERE c.category=:category", nativeQuery = true)
-	public void deleteByCategory(@Param("category") String category);
+//	@Modifying
+//	@Query(value = "DELETE orders from  orders o inner join product p on o.prodId = p.prodId inner join category c on c.category=p.category  WHERE c.category=:category", nativeQuery = true)
+//	public void deleteByCategory(@Param("category") String category);
+//
+//	@Query(value = "select * from orders o inner join product p on o.prodId = p.prodId inner join category c on c.category=p.category  WHERE c.category=:category", nativeQuery = true)
+//	public List<Order> getOrderByCategory(String category);
 
-	@Query(value = "select * from orders o inner join product p on o.prodId = p.prodId inner join category c on c.category=p.category  WHERE c.category=:category", nativeQuery = true)
-	public List<Order> getOrderByCategory(String category);
 
-	@Query(value = "select price from  product  WHERE prodId=:prodId", nativeQuery = true)
-	public int getProdPrice(@Param("prodId") int prodId);
-	
 		
 }

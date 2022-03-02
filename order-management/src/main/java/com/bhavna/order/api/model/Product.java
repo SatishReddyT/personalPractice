@@ -3,6 +3,8 @@ package com.bhavna.order.api.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,8 +17,9 @@ public class Product {
 	@Column(name = "PRODNAME")
 	private String prodName;
 
-	@Column(name = "CATEGORY")
-	private String category;
+	@ManyToOne
+	@JoinColumn(name = "CATEGORY")
+	private Category category;
 
 	@Column(name = "PRICE")
 	private int price;
@@ -37,11 +40,11 @@ public class Product {
 		this.prodName = prodName;
 	}
 
-	public String getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 
