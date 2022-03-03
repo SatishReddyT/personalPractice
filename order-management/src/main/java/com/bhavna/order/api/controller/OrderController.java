@@ -29,7 +29,7 @@ public class OrderController {
 	}
 
 	@PostMapping(path = "/addOrder")
-	public Order addEmployee(@RequestBody Order order) throws IOException {
+	public Order addOrder(@RequestBody Order order) throws IOException {
 
 		return service.addOrder(order);
 	}
