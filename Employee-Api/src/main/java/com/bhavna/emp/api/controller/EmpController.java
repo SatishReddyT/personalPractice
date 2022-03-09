@@ -38,14 +38,9 @@ public class EmpController {
 		return service.deleteById(e_id);
 	}
 
-	@PutMapping(path = "/put/api/Employee/{e_id}")
-	public String updateEmpId(@PathVariable("e_id") Integer e_id, @RequestBody Employee employee) {
-		return service.updateById(e_id, employee);
-	}
-
-	@GetMapping("/getAll")
-	public List<Employee> getAll() {
-		return service.getAllEmp();
+	@PutMapping(path = "/put/api/Employee")
+	public String updateEmpId( @RequestBody Employee employee) throws IOException {
+		return service.updateById(employee);
 	}
 
 	@GetMapping("/employees")
@@ -54,8 +49,3 @@ public class EmpController {
 	}
 
 }
-//* POST /api/Employee : To Save an Employee Details
-//* GET /api/Employee/{id} : To retrie the Specific Employee Details with the id
-//* PUT /api/Employee : To Update the Employee Details
-//* DELETE /api/Employee/{id} : Will Delete the specific Employee with the id
-//* GET /api/Employees?page=1&size=10 : Use Spring JPA Pagination concept hereThe Specified URl will fetch First 10 records, and if page=2&size=10 it will fectch Records 11-20 in the DBs
