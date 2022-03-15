@@ -23,7 +23,7 @@ public class EmpController {
 
 	@GetMapping(path = "/get/employeeProfile/{e_name}"+"${domain}")
 	public Employee getByName(@PathVariable("e_name") String e_name) {
-		return service.getById(e_name);
+		return service.getByName(e_name);
 	}
 
 	@PostMapping(path = "/post/employeeProfile")

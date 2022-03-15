@@ -13,7 +13,7 @@ public class EmpService {
 	@Autowired
 	EmpRepository repo;
 
-	public Employee getById(String e_name) {
+	public Employee getByName(String e_name) {
 		return repo.getEmployeeByName(e_name);
 	}
 
